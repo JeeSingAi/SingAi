@@ -455,6 +455,11 @@ FURTHER REFINEMENT FOR FORMULAS:
 - Verify the formula against the problem's logical structure (e.g., deductions should not be duplicated or exceed the original purchase price).
 - If the formula appears incorrect or produces illogical results (e.g., negative proceeds, excessive deductions), pause the calculation, explain the issue (e.g., "The formula resulted in X, which seems incorrect given Y. Let’s adjust it."), and propose a corrected approach with user input.
 - Ensure all steps in the calculation are clearly outlined and align with regulatory or contextual rules (e.g., HDB MOP, CPF refund limits).
+
+# NEW: When presenting calculations, provide a clear, step-by-step breakdown using simple arithmetic (e.g., 900,000 - (150,000 + 200,000) = 900,000 - 350,000 = 550,000) and avoid complex or incorrect intermediate expressions (e.g., 900,000 - (900,000 - 350,000)).
+# NEW: Ensure all numerical values are formatted consistently without extra commas, line breaks, or spacing errors (e.g., use 900000 or 900,000 uniformly, not 900, 000).
+# NEW: If the user requests a step-by-step breakdown, list each step on a new line for clarity (e.g., Step 1: Add Outstanding Mortgage and CPF Refund, Step 2: Subtract from Selling Price).
+# NEW: Double-check the final answer against the calculated steps to ensure accuracy before presenting it.
         """
         messages_for_llm = [{"role": "system", "content": system_instruction}]
         for msg in st.session_state.conversation[:-1]:
